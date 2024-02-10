@@ -2,33 +2,37 @@ import React from 'react'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import "./MysteryNumberMain.css";
- 
+
 
 
 const MysteryNumberMain = () => {
-	return (
-    
-<div className="mysterNumberGame">
-  <div className='title'>
-    <h1>Mystery Number</h1>
-  </div>
-  <div className='numberSection'>
-  <button className='level'>Level 1</button>
-  <button className='level'>Level 2</button>
-  <button className='level' >Level 3</button>
-
-  </div>
-  <div className='restartSection'>
-  <button>Restart</button>
-
-  </div>
+  const numbers = [];
+  for (let i = 0; i <= 100; i++) {
+    numbers.push(<div key={i} className="numberBtn">{i}</div>);
+  }
   
-  <div className='resultSection'></div>
+  return (
+    <div className="mysteryNumberGame">
+      <div className='title'>
+        <h1>Mystery Number</h1>
+      </div>
 
+      <div className='left'>
+        <div className='numbers'>{numbers}</div>
+        <div className='level'>
+          <button className='level'>Level 1</button>
+          <button className='level'>Level 2</button>
+          <button className='level'>Level 3</button>
+        </div>
+      
+        {/* <div className='restartSection'>
+          <button>Restart</button>
+        </div> */}
+
+        <div className='resultSection'></div>
+      </div>
     </div>
-
-    
-	)
+  );
 }
 
 export default MysteryNumberMain;
