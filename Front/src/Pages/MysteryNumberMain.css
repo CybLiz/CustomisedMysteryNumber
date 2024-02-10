@@ -1,5 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@400;500;600&family=Poppins:wght@700;800&family=Protest+Revolution&display=swap');
+
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	background-image: url('../Background.png');
+	background-attachment: fixed;
+}
+
+.mysterNumberGame {
+	width: 100%;
+
+}
+
+.title {
+
+	font-family: 'Protest Revolution', sans-serif;
+	font-size: 25px;
+	color: #A27535;
+	background: none;
+	position: fixed;
+	top: 9%;
+	left: 43%;
+}
+
+.numberSection {
+	width: 30%;
+	position: fixed;
+	top: 69%;
+	left: 17%;
+
+}
+
+.numberSection .level {
+	width: 200px;
+	height: 50px;
+	margin: 10px;
+	border-radius: 10px;
+	background-color: #A27535;
 }
