@@ -7,8 +7,8 @@ import "./MysteryNumberMain.css";
 
 const MysteryNumberMain = () => {
   const numbers = [];
-  for (let i = 0; i <= 100; i++) {
-    numbers.push(<div key={i} className="numberBtn">{i}</div>);
+  for (let i = 1; i <= 100; i++) {
+    numbers.push(<button key={i} className="numberBtn">{i}</button>);
   }
   
   return (
@@ -19,18 +19,22 @@ const MysteryNumberMain = () => {
 
       <div className='left'>
         <div className='numbers'>{numbers}</div>
-        <div className='level'>
-          <button className='level'>Level 1</button>
-          <button className='level'>Level 2</button>
+
+        <div className='levels'>
           <button className='level'>Level 3</button>
+          <button className='level'>Level 2</button>
+          <button className='level'>Level 1</button>
         </div>
       
         {/* <div className='restartSection'>
           <button>Restart</button>
         </div> */}
 
-        <div className='resultSection'></div>
       </div>
+       <div className='right'>
+       <div className='resultSection'></div>
+
+       </div>
     </div>
   );
 }
