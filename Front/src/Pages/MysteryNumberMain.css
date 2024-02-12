@@ -9,40 +9,40 @@
 	background-attachment: fixed;
 	background-size: cover;
     background-repeat: no-repeat;
+	font-family: 'Protest Revolution', sans-serif;
 
 }
-/* 
-.mysterNumberGame {
-	width: 100%;
 
-} */
 
-.title {
 
-	font-family: 'Protest Revolution', sans-serif;
+.mysteryNumberGame .title {
+
 	font-size: 25px;
 	color: #A27535;
 	background: none;
 	margin-left: 950px;
 	margin-top: 100px;
-	/* position: relative;
-	top: 100px;
-	left: 42%; */
+	
 }
 
-.left {
-	width: 690px;
-	height: 500px;
-	display: flex;
-	margin-top: 230px;
-	margin-left: 350px;
-}
-
-.left .numbers{
+.content{
 	display: flex;
 	flex-wrap: wrap;
 }
-.left .numberBtn{
+
+.mysteryNumberGame .left {
+	width: 700px;
+	display: flex;
+	align-items: center;
+	margin-top: 230px;
+	margin-left: 350px; 
+}
+
+.mysteryNumberGame .left .numbers{
+	display: flex;
+	flex-wrap: wrap;
+}
+.mysteryNumberGame .left .numberBtn{
 	font-size: 25px;
 	border: solid 2px;
 	box-shadow:  0 3px 3px black ;
@@ -55,14 +55,14 @@
 
 }
 
-.left .levels{
+.mysteryNumberGame .left .levels{
 	margin-top: 6px;
 	margin-right: 5px;
 	display: flex;
 flex-direction: column;
 
 }
-.left .level {
+.mysteryNumberGame .left .level {
 	width: 50px;
 	height: 150px;
 	box-shadow:   -3px -3px   black;
@@ -79,15 +79,23 @@ font-size: larger;
 font-weight: bold;
 }
 
-.right{
-	width: 690px;
+.mysteryNumberGame .right{
+	width: 300px;
 	height: 500px;
 	display: flex;
 	margin-top: 230px;
-	margin-left: 650px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-left: 510px;
+	gap: 30px;
 }
 
-.right .failed{
+.mysteryNumberGame .right .failed{
 	width: 70px;
 	height: 100px;
+}
+
+.mysteryNumberGame .right p{
+font-size: 25px;
 }

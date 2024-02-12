@@ -11,13 +11,14 @@ import failedImage from '../failed.png';
 const MysteryNumberMain = () => {
   const [selectedNumber, setSelectedNumber] = useState('');
   const [chance, setChance] = useState(3);
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState([]);
 
   const mysteryNumber = Math.floor(Math.random() * 100) + 1;
 
   const handleNumberClick = (number) => {
     setSelectedNumber(number);
     handleResult(number);
+    console.log(selectedNumber)
   };
 
   const handleResult = (number) => {
@@ -34,7 +35,7 @@ const MysteryNumberMain = () => {
     } else {
       message = `${chance === 0 ? 'Sorry, you ran out of chances.' : `${chance}th Try`} The mystery number was ${mysteryNumber}.`;
     }
-    setResult(message);
+    setResult(prevResult => prevResult.concat(message));
   };
 
 
@@ -43,17 +44,32 @@ const MysteryNumberMain = () => {
       <div className='title'>
         <h1>Mystery Number</h1>
       </div>
-      <div className='left'>
-        <div className='numbers'>
-          {Array.from({ length: 100 }, (_, i) => i + 1).map((number) => (
-            <button key={number} className="numberBtn" onClick={() => handleNumberClick(number)}>
-              {number}
-            </button>
-          ))}
+      <div className='content'>
+        <div className='left'>
+          <div className='numbers'>
+            {Array.from({ length: 100 }, (_, i) => i + 1).map((number) => (
+              <button key={number} className="numberBtn" onClick={() => handleNumberClick(number)}>
+                {number}
+              </button>
+            ))}
+          </div>
+          <div className='levels'>
+            <button className='level'>Level 3</button>
+            <button className='level'>Level 2</button>
+            <button className='level'>Level 1</button>
+          </div>
+
         </div>
-        <div className='resultSection'>
-          <p>{result}</p>
-        </div>
+
+        {/* <div className='restartSection'>
+          <button>Restart</button>
+        </div> */}
+
+
+        <div className='right'>
+          {result.map((message, index) => (
+            <p key={index}>{message}</p>
+          ))}      </div>
       </div>
     </div>
   );
