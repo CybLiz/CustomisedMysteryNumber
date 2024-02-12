@@ -14,7 +14,7 @@ const MysteryNumberMain = () => {
   const [result, setResult] = useState('');
 
   const mysteryNumber = Math.floor(Math.random() * 100) + 1;
-
+  
   const handleNumberClick = (number) => {
     setSelectedNumber(number);
     handleResult(number);
@@ -35,8 +35,8 @@ const MysteryNumberMain = () => {
       message = `Sorry, you ran out of chances. The mystery number was ${mysteryNumber}.`;
     }
     setResult(message);
-
   };
+
 
   return (
     <div className="mysteryNumberGame">
