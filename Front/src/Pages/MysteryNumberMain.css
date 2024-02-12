@@ -78,3 +78,16 @@ align-items: center;
 font-size: larger;
 font-weight: bold;
 }
+
+.right{
+	width: 690px;
+	height: 500px;
+	display: flex;
+	margin-top: 230px;
+	margin-left: 650px;
+}
+
+.right .failed{
+	width: 70px;
+	height: 100px;
+}

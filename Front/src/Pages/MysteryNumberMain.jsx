@@ -1,42 +1,62 @@
-import React from 'react'
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import React, { useState } from 'react';
 import "./MysteryNumberMain.css";
+import failedImage from '../failed.png';
+
+// import { GiFeather } from "react-icons/gi";
+{/* <GiFeather /> */}
+
 
 
 
 const MysteryNumberMain = () => {
-  const numbers = [];
-  for (let i = 1; i <= 100; i++) {
-    numbers.push(<button key={i} className="numberBtn">{i}</button>);
-  }
-  
+  const [selectedNumber, setSelectedNumber] = useState('');
+  const [chance, setChance] = useState(3);
+  const [result, setResult] = useState('');
+
+  const mysteryNumber = Math.floor(Math.random() * 100) + 1;
+
+  const handleNumberClick = (number) => {
+    setSelectedNumber(number);
+    handleResult(number);
+  };
+
+  const handleResult = (number) => {
+    let message = '';
+    if (chance > 0) {
+      if (number < mysteryNumber) {
+        message = `${chance}${chance < 2 ? 'st' : 'st'} Try ${number} ? ... +`;
+      } else if (number > mysteryNumber) {
+        message = `${chance}${chance < 2 ? 'nd' : 'nd'} Try ${number} ? ... -`;
+      } else {
+        message = `${chance}${chance < 2 ? 'd' : 'd'} Try ${number} Congratulations!`;
+      }
+      setChance(chance - 1);
+    } else {
+      message = `Sorry, you ran out of chances. The mystery number was ${mysteryNumber}.`;
+    }
+    setResult(message);
+
+  };
+
   return (
     <div className="mysteryNumberGame">
       <div className='title'>
         <h1>Mystery Number</h1>
       </div>
-
       <div className='left'>
-        <div className='numbers'>{numbers}</div>
-
-        <div className='levels'>
-          <button className='level'>Level 3</button>
-          <button className='level'>Level 2</button>
-          <button className='level'>Level 1</button>
+        <div className='numbers'>
+          {Array.from({ length: 100 }, (_, i) => i + 1).map((number) => (
+            <button key={number} className="numberBtn" onClick={() => handleNumberClick(number)}>
+              {number}
+            </button>
+          ))}
         </div>
-      
-        {/* <div className='restartSection'>
-          <button>Restart</button>
-        </div> */}
-
+        <div className='resultSection'>
+          <p>{result}</p>
+        </div>
       </div>
-       <div className='right'>
-       <div className='resultSection'></div>
-
-       </div>
     </div>
   );
-}
+};
 
 export default MysteryNumberMain;
