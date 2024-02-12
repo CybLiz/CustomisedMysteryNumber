@@ -3,7 +3,7 @@ import "./MysteryNumberMain.css";
 import failedImage from '../failed.png';
 
 // import { GiFeather } from "react-icons/gi";
-{/* <GiFeather /> */}
+{/* <GiFeather /> */ }
 
 
 
@@ -14,7 +14,7 @@ const MysteryNumberMain = () => {
   const [result, setResult] = useState('');
 
   const mysteryNumber = Math.floor(Math.random() * 100) + 1;
-  
+
   const handleNumberClick = (number) => {
     setSelectedNumber(number);
     handleResult(number);
@@ -24,15 +24,15 @@ const MysteryNumberMain = () => {
     let message = '';
     if (chance > 0) {
       if (number < mysteryNumber) {
-        message = `${chance}${chance < 2 ? 'st' : 'st'} Try ${number} ? ... +`;
+        message = `${chance}${chance === 1 ? 'st' : chance === 2 ? 'nd' : chance === 3 ? 'rd' : 'th'} Try ${number} ? ... +`;
       } else if (number > mysteryNumber) {
-        message = `${chance}${chance < 2 ? 'nd' : 'nd'} Try ${number} ? ... -`;
+        message = `${chance}${chance === 1 ? 'st' : chance === 2 ? 'nd' : chance === 3 ? 'rd' : 'th'} Try ${number} ? ... +`;
       } else {
-        message = `${chance}${chance < 2 ? 'd' : 'd'} Try ${number} Congratulations!`;
+        message = `${chance}${chance === 1 ? 'st' : chance === 2 ? 'nd' : chance === 3 ? 'rd' : 'th'} Try ${number}Congratulations!`;
       }
       setChance(chance - 1);
     } else {
-      message = `Sorry, you ran out of chances. The mystery number was ${mysteryNumber}.`;
+      message = `${chance === 0 ? 'Sorry, you ran out of chances.' : `${chance}th Try`} The mystery number was ${mysteryNumber}.`;
     }
     setResult(message);
   };
