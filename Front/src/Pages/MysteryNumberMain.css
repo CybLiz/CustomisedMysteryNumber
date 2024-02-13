@@ -83,21 +83,54 @@ font-weight: bold;
 	width: 400px;
 	height: 500px;
 	display: flex;
-	margin-top: 230px;
+	margin-top: 190px;
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
 	margin-left: 470px;
 	padding: 5px;
-	gap: 30px;
 }
 
-.mysteryNumberGame .right .failed{
-	width: 70px;
+
+.gameOver {
+	width: 400px;
+	height: 120px;
+}
+
+.mysteryNumberGame .right .gameOver img{
+	width: 100px;
 	height: 100px;
+	margin-right: 350px;
 }
 
-.mysteryNumberGame .right p{
-font-size: 25px;
-margin-top: 45px;
+.result {
+	width: 400px;
+	height: 350px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
 }
+.mysteryNumberGame .right p{
+	font-size: 25px;
+	margin-top: 25px;
+	}
+
+	.restartSection{
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		top:50%;
+		left: 54%;
+
+	}
+
+	.restartbtn{
+		width:70px;
+height: 70px;	
+border: thin 1px;
+border-radius: 50px;
+box-shadow: 3px 3px 5px black;  
+
+}
+
