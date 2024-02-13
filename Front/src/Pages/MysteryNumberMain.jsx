@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./MysteryNumberMain.css";
 import failedImage from '../failed.png';
 import succesImage from '../Succes.png';
+import restartImage from '../restart.png';
 
 // import { GiFeather } from "react-icons/gi";
 {/* <GiFeather /> */ }
@@ -161,6 +162,7 @@ const MysteryNumberMain = () => {
         </div>
 
         <div className='restartSection'>
+        <img src={restartImage} className="restartImage" />
           <button className='restartbtn' onClick={handleRestartClick}>Restart</button>
         </div>
 

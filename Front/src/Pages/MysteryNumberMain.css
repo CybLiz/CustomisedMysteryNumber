@@ -117,19 +117,30 @@ font-weight: bold;
 	}
 
 	.restartSection{
-		width: 150px;
-		height: 150px;
+
+width: 100px;
+		height: 100px;
 		position: absolute;
-		top:50%;
-		left: 54%;
+		top:43%;
+		left: 50%;
 
 	}
 
+	.restartImage{
+		position: absolute;
+		top: 40%;
+	}
+
 	.restartbtn{
-		width:90px;
-height: 90px;	
-border: thin 1px;
-border-radius: 50px;
+		position: absolute;
+		top: 105%;
+		left: 64%;
+		transform: translate(-50%, -50%);
+		width: 70px;
+		background: none;
+height: 70px;	
+border: 1px thin;
+border-radius: 50%;
 box-shadow: 3px 3px 5px black;  
 font-size: 20px;
 font-weight: bolder;
