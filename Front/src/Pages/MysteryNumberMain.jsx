@@ -41,24 +41,43 @@ const MysteryNumberMain = () => {
   const [gameOver, setGameOver] = useState(false);
 
 
-  const mysteryNumber = Math.floor(Math.random() * 100) + 1;
-  console.log(mysteryNumber);
+  // const mysteryNumber = Math.floor(Math.random() * 100) + 1;
+  // console.log(mysteryNumber);
 
-  const handleNumberClick = (number) => {
-    if (!gameOver) {
-      setSelectedNumber(number);
-      handleResult(number);
-      console.log(selectedNumber)
-    }
-  };
 
   const [level, setLevel] = useState(1);
-
-
-const handleLevelClick = (level) => {
+  const handleLevelClick = (level) => {
   setLevel(level);
   setSelectedNumber('');
 }
+
+const handleNumberClick = (number) => {
+  if (!gameOver) {
+    setSelectedNumber(number);
+    handleResult(number);
+    console.log(selectedNumber)
+  }
+};
+
+const generateMysteryNumber = (level) => {
+  let start, end;
+  if (level === 1) {
+    start= 1;
+    end=10;
+  }
+  if (level === 2) {
+    start= 1;
+    end=50;
+  }
+  if (level === 3) {
+    start= 1;
+    end=100;
+}
+return Math.floor(Math.random() * (end)) + 1;
+
+};
+
+const mysteryNumber = generateMysteryNumber(level);
 
 const levelNumbControll = () => {
   const numbers = [];
