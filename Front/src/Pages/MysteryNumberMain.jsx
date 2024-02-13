@@ -43,7 +43,10 @@ const MysteryNumberMain = () => {
 
   // const mysteryNumber = Math.floor(Math.random() * 100) + 1;
   // console.log(mysteryNumber);
+ const handleRestartClick = () => {
+  window.location.reload();
 
+ }
 
   const handleLevelClick = (level) => {
     setLevel(level);
@@ -158,7 +161,7 @@ const MysteryNumberMain = () => {
         </div>
 
         <div className='restartSection'>
-          <button className='restartbtn'>Restart</button>
+          <button className='restartbtn' onClick={handleRestartClick}>Restart</button>
         </div>
 
 
