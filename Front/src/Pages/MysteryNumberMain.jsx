@@ -62,7 +62,9 @@ const MysteryNumberMain = () => {
     setSelectedNumber('');
     // const mysteryNumber = generateMysteryNumber(level);
     setMysteryNumber(generateMysteryNumber(level));
-
+    setResult([]);
+    setFailure(false);
+    setSuccess(false);
   }
 
   const generateMysteryNumber = (level) => {
@@ -126,8 +128,8 @@ const MysteryNumberMain = () => {
         message = `${chance}${chance === 1 ? 'st' : chance === 2 ? 'nd' : chance === 3 ? 'rd' : 'th'} Try : ${number} ? ... -`;
       } else if (number === mysteryNumberStorage) { 
         message = (
-          <div>
-            <p>{chance}{chance === 1 ? 'st' : chance === 2 ? 'nd' : chance === 3 ? 'rd' : 'th'} Try : {number}</p>
+          <div className='resultMessage'>
+            <p>{chance}{chance === 1 ? 'st' : chance === 2 ? 'nd' : chance === 3 ? 'rd' : 'th'} Try : {number} ? ... </p>
             <p>Congratulations! You guessed the mystery number</p>
           </div>
         );
@@ -138,8 +140,8 @@ const MysteryNumberMain = () => {
 
     } else {
       message = (
-        <div>
-          <p>{chance === 3 ? `${chance}rd Try : ${number} ` : ''}</p>
+        <div className='resultMessage'>
+          <p>{chance === 3 ? `${chance}rd Try : ${number} ? ... ! ` : ''}</p>
           <p>Sorry, you ran out of chances. The mystery number was {mysteryNumberStorage}</p>
         </div>
       );
