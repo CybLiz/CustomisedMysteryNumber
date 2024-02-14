@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./MysteryNumberMain.css";
 import failedImage from '../failed.png';
 import succesImage from '../Succes.png';
@@ -40,10 +40,18 @@ const MysteryNumberMain = () => {
   const [level, setLevel] = useState(1);
   const [success, setSuccess] = useState(false);
   const [failure, setFailure] = useState(false);
+  const [mysteryNumberStorage, setMysteryNumber] = useState(null);
 
 
   // const mysteryNumber = Math.floor(Math.random() * 100) + 1;
   // console.log(mysteryNumber);
+
+
+
+  useEffect(() => {
+    setMysteryNumber(generateMysteryNumber(level));
+  }, []);
+
  const handleRestartClick = () => {
   window.location.reload();
 
@@ -52,7 +60,9 @@ const MysteryNumberMain = () => {
   const handleLevelClick = (level) => {
     setLevel(level);
     setSelectedNumber('');
-    const mysteryNumber = generateMysteryNumber(level);
+    // const mysteryNumber = generateMysteryNumber(level);
+    setMysteryNumber(generateMysteryNumber(level));
+
   }
 
   const generateMysteryNumber = (level) => {
@@ -69,7 +79,7 @@ const MysteryNumberMain = () => {
       start = 1;
       end = 100;
     }
-    return Math.floor(Math.random() * (end)) + 1;
+    return Math.floor(Math.random() * (end - start + 1)) + start;
   };
 
 
@@ -99,9 +109,7 @@ const MysteryNumberMain = () => {
     }
     for (let i = start; i <= end; i++) {
       numbers.push(
-        <button key={i} className="numberBtn" onClick={() => handleNumberClick(i)}>
-          {i}
-        </button>
+        <button key={i} className="numberBtn" onClick={() => handleNumberClick(i)}>{i}</button>
       );
     }
     return numbers;
@@ -111,30 +119,19 @@ const MysteryNumberMain = () => {
 
   const handleResult = (number, mysteryNumber) => {
     let message = '';
-    if (chance <= 3) {
+    if (chance < 3) {
       if (number < mysteryNumber) {
         message = `${chance}${chance === 1 ? 'st' : chance === 2 ? 'nd' : chance === 3 ? 'rd' : 'th'} Try : ${number} ? ... +`;
       } else if (number > mysteryNumber) {
         message = `${chance}${chance === 1 ? 'st' : chance === 2 ? 'nd' : chance === 3 ? 'rd' : 'th'} Try : ${number} ? ... -`;
       } else if (number === mysteryNumber) {
-        message =
-
-          <p>
-            {`${chance}${chance === 1 ? 'st' : chance === 2 ? 'nd' : chance === 3 ? 'rd' : 'th'} Try : ${number} Congratulations! You guessed the mystery number`}
-          </p>
-
+        message = `${chance}${chance === 1 ? 'st' : chance === 2 ? 'nd' : chance === 3 ? 'rd' : 'th'} Try : ${number} Congratulations! You guessed the mystery number`
         setGameOver(true)
         setSuccess(true);
       }
-
       setChance(chance + 1);
-
-
     } else {
-      message = 
-
-        <p> Sorry, you ran out of chances. The mystery number was ${mysteryNumber}. </p>
-
+      message = <p>{chance === 3 ? `${chance}rd Try : ${number} ` : ''}Sorry, you ran out of chances. The mystery number was {mysteryNumber}. </p>;
       setGameOver(true)
       setFailure(true);
     }
