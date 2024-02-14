@@ -120,24 +120,35 @@ const MysteryNumberMain = () => {
   const handleResult = (number, mysteryNumber) => {
     let message = '';
     if (chance < 3) {
-      if (number < mysteryNumber) {
+      if (number < mysteryNumberStorage) { 
         message = `${chance}${chance === 1 ? 'st' : chance === 2 ? 'nd' : chance === 3 ? 'rd' : 'th'} Try : ${number} ? ... +`;
-      } else if (number > mysteryNumber) {
+      } else if (number > mysteryNumberStorage) { 
         message = `${chance}${chance === 1 ? 'st' : chance === 2 ? 'nd' : chance === 3 ? 'rd' : 'th'} Try : ${number} ? ... -`;
-      } else if (number === mysteryNumber) {
-        message = `${chance}${chance === 1 ? 'st' : chance === 2 ? 'nd' : chance === 3 ? 'rd' : 'th'} Try : ${number} Congratulations! You guessed the mystery number`
-        setGameOver(true)
+      } else if (number === mysteryNumberStorage) { 
+        message = (
+          <div>
+            <p>{chance}{chance === 1 ? 'st' : chance === 2 ? 'nd' : chance === 3 ? 'rd' : 'th'} Try : {number}</p>
+            <p>Congratulations! You guessed the mystery number</p>
+          </div>
+        );
+        setGameOver(true);
         setSuccess(true);
       }
       setChance(chance + 1);
+
     } else {
-      message = <p>{chance === 3 ? `${chance}rd Try : ${number} ` : ''}Sorry, you ran out of chances. The mystery number was {mysteryNumber}. </p>;
-      setGameOver(true)
+      message = (
+        <div>
+          <p>{chance === 3 ? `${chance}rd Try : ${number} ` : ''}</p>
+          <p>Sorry, you ran out of chances. The mystery number was {mysteryNumberStorage}</p>
+        </div>
+      );
+      setGameOver(true);
       setFailure(true);
+
     }
     setResult(prevResult => prevResult.concat(message));
   };
-
 
   return (
     <div className="mysteryNumberGame">
