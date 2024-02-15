@@ -35,7 +35,7 @@
 	display: flex;
 	align-items: center;
 	margin-top: 230px;
-	margin-left: 350px;
+	margin-left: 235px;
 }
 
 .mysteryNumberGame .left .numbers {
@@ -85,24 +85,26 @@
 	width: 400px;
 	height: 500px;
 	display: flex;
-	margin-top: 190px;
+	margin-top: 180px;
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	margin-left: 470px;
+	margin-left: 453px;
 	padding: 5px;
+
 }
 
 
 .gameOver {
 	width: 400px;
 	height: 120px;
+	margin-top: 0px;
+
 }
 
 .mysteryNumberGame .right .gameOver img {
 	width: 100px;
 	height: 100px;
-	margin-right: 350px;
 }
 
 .result {
@@ -111,19 +113,20 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 10px;
+	gap: 60px;
 }
 
 .result .resultMessage {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	gap: 50px;
+
 
 }
 
 .mysteryNumberGame .right p {
 	font-size: 25px;
-	margin-top: 25px;
 }
 
 .restartSection {
@@ -132,7 +135,7 @@
 	height: 100px;
 	position: absolute;
 	top: 43%;
-	left: 50%;
+	left: 47.5%;
 
 }
 
