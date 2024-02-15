@@ -143,7 +143,9 @@ const MysteryNumberMain = () => {
     }
     for (let i = start; i <= end; i++) {
       numbers.push(
-        <button key={i} className="numberBtn" onClick={() => handleNumberClick(i)}>{i}</button>
+        <button key={i} 
+        className={`numberBtn ${selectedNumber === i ? 'selected' : ''}`}
+        onClick={() => handleNumberClick(i)}>{i}</button>
       );
     }
     return numbers;
