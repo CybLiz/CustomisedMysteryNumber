@@ -34,6 +34,7 @@ import restartImage from '../restart.png';
 
 const MysteryNumberMain = () => {
   const [selectedNumber, setSelectedNumber] = useState('');
+  const [selectedNumbers, setSelectedNumbers] = useState('');
   const [chance, setChance] = useState(1);
   const [result, setResult] = useState([]);
   const [gameOver, setGameOver] = useState(false);
@@ -82,6 +83,7 @@ const MysteryNumberMain = () => {
   const handleNumberClick = (number) => {
     if (!gameOver) {
       setSelectedNumber(number);
+      setSelectedNumbers((prevSelectedNumbers) =>[... prevSelectedNumbers, number]);
       handleResult(number, mysteryNumberStorage);
     }
   };
@@ -144,7 +146,7 @@ const MysteryNumberMain = () => {
     for (let i = start; i <= end; i++) {
       numbers.push(
         <button key={i} 
-        className={`numberBtn ${selectedNumber === i ? 'selected' : ''}`}
+        className={`numberBtn ${selectedNumbers.includes(i) ? 'selected' : ''}`}
         onClick={() => handleNumberClick(i)}>{i}</button>
       );
     }
